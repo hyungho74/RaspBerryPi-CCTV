@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>RaspBerryPi-CCTV</title>
+        <meta name="viewport" content="width=device-width initial-scale=1">
+    </head>
+    <body>
+        <h1>CCTV 프로젝트</h1>
+        <hr>
+        <div width="640" height="480" style="display: inline-block;" class="vid">
+            <h1 class="as">Image</h1>
+            <img id="img" src="{{url_for('video_feed')}}">
+        </div>
+        <div style="padding: 20px;">
+            <h3>각도 조절(서보모터)</h3>
+            <form method="GET" action="/servo_control">
+                <input type="range" min="0" max="180" name = "deg" value={{deg}} onchange="this.form.submit()">
+                <input type="range" min="0" max="180" name = "deg1" value={{deg1}} onchange="this.form.submit()">
+            </form>
+            각도(상하) : {{deg}}
+
+            각도(좌우) : {{deg1}}
+            <hr>
+        </div>
+    </body>
+</html>
